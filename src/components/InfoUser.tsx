@@ -27,20 +27,20 @@ export const InfoUser = ({ user,changeStatePopUp }: Props) => {
 
       <View style={styles.fila}>
         <TouchableOpacity onPress={() => { deleted(user),changeStatePopUp(false) }}>
-          <View style={{ ...styles.fab, backgroundColor: 'red', }}>
-            <Text style={styles.fabText} >Borrar</Text>
+          <View style={{ ...styles.btn, backgroundColor: '#D8272F', }}>
+            <Text style={styles.btnText} >Borrar</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { changeStateUser(user) }}>
-          <View style={{ ...styles.fab, backgroundColor: 'blue', }}>
-            <Text style={styles.fabText}>Desactivar</Text>
+          <View style={{ ...styles.btn, backgroundColor: '#3361A4', }}>
+            <Text style={styles.btnText}>Desactivar</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity >
-          <View style={styles.fab}>
-            <Text style={styles.fabText}>Desactivar</Text>
+          <View style={{...styles.btn,backgroundColor:'#3617A9'}}>
+            <Text style={styles.btnText}>Editar</Text>
           </View>
         </TouchableOpacity>
 
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
     alignItems:'center',
     backgroundColor:'white',
     width:'100%',
+    borderBottomEndRadius:10,
+    borderBottomStartRadius:10
   },
   item: {
     backgroundColor: '#f9c2ff',
@@ -74,18 +76,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     bottom: 25,
   },
-  fab: {
+  btn: {
     backgroundColor: '#33DDFF',
     width: 105,
     height: 45,
-    borderRadius: 100,
+    borderRadius: 7,
     justifyContent: 'center',
-    marginHorizontal: 10,
-    alignItems: 'baseline',
+    marginHorizontal: 6,
+    alignItems: 'center',
   },
-  fabText: {
+  btnText: {
     color: 'white',
     fontSize: 15,
-    alignSelf: 'center',
   },
 });

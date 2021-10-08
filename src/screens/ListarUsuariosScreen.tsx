@@ -1,6 +1,6 @@
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import React, { useContext, useState } from 'react'
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, Image } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { UserContext } from '../context/UsersContext';
 import { PopUpInfoUserScreen } from '../components/PopUpInfoUser';
@@ -21,16 +21,21 @@ export const ListarUsuariosScreen = ({ navigation }: Props) => {
       {
         usersState.map((item) => {
           return (
-            <View style={styles.item} key={item.id}>
+            <View style={styles.containerInfo} key={item.id}>
               {/* <TouchableOpacity onPress={() => { navigation.navigate('InfoUser', item) }}> */}
               <TouchableOpacity onPress={() => { setUser(item), setState(true) }}>
-                <Text style={styles.title}>Nombre: {item.nombre} {item.apellido}</Text>
-                <Text style={styles.title}>Usuario: {item.userName} </Text>
+                <View style={{ flexDirection: 'row' }}>
+                  <Image source={require('../assets/icons/user.png')} style={{ width: 50, height: 50 }} />
+                  <View style={{ justifyContent: 'center', marginHorizontal: 50 }}>
+                    <Text style={styles.title}>{item.nombre} {item.apellido}</Text>
+                  </View>
+
+                </View>
               </TouchableOpacity>
             </View>
           )
         })
-        }
+      }
       <View>
         <PopUpInfoUserScreen show={state} changeStatePopUp={setState} user={user} />
       </View>
@@ -42,14 +47,15 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
-  item: {
-    backgroundColor: '#f9c2ff',
+  containerInfo: {
+    backgroundColor: '#554B5F',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
-    borderRadius: 20
+    borderRadius: 10
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    color: "white"
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator, DrawerScreenProps } from '@react-navigation/drawer';
-import FormularioScreen from '../screens/FormularioScreen';
+import {FormularioScreen} from '../screens/FormularioScreen';
 import { ListarUsuariosScreen } from '../screens/ListarUsuariosScreen';
 import { Home } from '../screens/Home';
 import { Usuario } from '../models/usuario';

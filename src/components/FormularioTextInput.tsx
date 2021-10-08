@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { KeyboardTypeOptions, StyleSheet, TextInput } from 'react-native';
 
 interface props {
   placeholder: keyof {
@@ -9,7 +9,7 @@ interface props {
     nombre: string;
     email: string;
   },
-  keyboard: string;
+  keyboard: KeyboardTypeOptions;
   value: string;
   onChange: (
     value: string,
@@ -33,7 +33,7 @@ const FormularioTextInput = ({
     <TextInput
       style={styles.input}
       placeholder={placeholder}
-      keyboardType={(keyboard === undefined) ? keyboard : "default"}
+      keyboardType={(keyboard != undefined) ? keyboard : 'default'}
       value={value}
       onChangeText={value => {
         onChange(value, placeholder)
