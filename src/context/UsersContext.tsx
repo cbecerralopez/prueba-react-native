@@ -38,7 +38,7 @@ export const UserInitialState: UserState[] = [{
 export interface UserStateProps {
     usersState: UserState[]
     add: (user: UserState) => void
-    changeState: (user: UserState) => void
+    changeStateUser: (user: UserState) => void
     deleted: (user: UserState) => void
 }
 
@@ -52,9 +52,9 @@ export const UserProvider = ({ children }: any) => {
         user.id = usersState.length + 1
         dispatch({ type: 'add', payload: user })
     }
-    const changeState = (user: UserState) => {
+    const changeStateUser = (user: UserState) => {
         (user.estado) ? user.estado = false : user.estado = true
-        dispatch({ type: 'changeState', payload: user })
+        dispatch({ type: 'changeStateUser', payload: user })
     }
     const deleted = (user: UserState) => {
 
@@ -63,7 +63,7 @@ export const UserProvider = ({ children }: any) => {
     return (
         <UserContext.Provider value={{
             usersState,
-            changeState,
+            changeStateUser,
             deleted,
             add,
         }}>{children}</UserContext.Provider>

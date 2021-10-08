@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
-import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { UserContext, UserState } from '../context/UsersContext';
 
 interface Props {
   user: UserState
+  changeStatePopUp: React.Dispatch<React.SetStateAction<boolean>>
+
 }
-export const InfoUser = ({ user }: Props) => {
-  const { changeState, deleted } = useContext(UserContext)
+export const InfoUser = ({ user,changeStatePopUp }: Props) => {
+  const { changeStateUser, deleted } = useContext(UserContext)
 
   if (user == undefined) {
     return <Text> primero seleccion un usuario</Text>
@@ -24,13 +26,13 @@ export const InfoUser = ({ user }: Props) => {
       </View>
 
       <View style={styles.fila}>
-        <TouchableOpacity onPress={() => { deleted(user) }}>
+        <TouchableOpacity onPress={() => { deleted(user),changeStatePopUp(false) }}>
           <View style={{ ...styles.fab, backgroundColor: 'red', }}>
             <Text style={styles.fabText} >Borrar</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => { changeState(user) }}>
+        <TouchableOpacity onPress={() => { changeStateUser(user) }}>
           <View style={{ ...styles.fab, backgroundColor: 'blue', }}>
             <Text style={styles.fabText}>Desactivar</Text>
           </View>
@@ -49,7 +51,11 @@ export const InfoUser = ({ user }: Props) => {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'white',
+    width:'100%',
   },
   item: {
     backgroundColor: '#f9c2ff',

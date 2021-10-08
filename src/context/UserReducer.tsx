@@ -2,7 +2,7 @@ import { UserState } from "./UsersContext";
 
 type UserAction =
     | { type: 'add', payload: UserState }
-    | { type: 'changeState', payload: UserState }
+    | { type: 'changeStateUser', payload: UserState }
     | { type: 'delete', payload: UserState }
 
 
@@ -11,7 +11,7 @@ export const UserReducer = (state: UserState[], action: UserAction): UserState[]
     switch (action.type) {
         case 'add':
             return [...state, action.payload];
-        case 'changeState': {
+        case 'changeStateUser': {
             for (let i = 0; i <= state.length - 1; i++) {
                 const user = state[i];
                 if (user.id === action.payload.id) {

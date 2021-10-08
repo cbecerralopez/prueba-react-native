@@ -18,11 +18,13 @@ export const Home = ({ navigation }: Props) => {
 }
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#808080',
   },
   logo: {
-    width: 300,
+    width: 260,
     height: 100,
-
   },
 });

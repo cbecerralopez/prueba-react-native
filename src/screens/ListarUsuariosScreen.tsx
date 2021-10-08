@@ -2,7 +2,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 import React, { useContext, useState } from 'react'
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { UserContext, UserState } from '../context/UsersContext';
+import { UserContext } from '../context/UsersContext';
 import { PopUpInfoUserScreen } from '../components/PopUpInfoUser';
 
 
@@ -32,7 +32,7 @@ export const ListarUsuariosScreen = ({ navigation }: Props) => {
         })
         }
       <View>
-        <PopUpInfoUserScreen show={state} changeState={setState} user={user} />
+        <PopUpInfoUserScreen show={state} changeStatePopUp={setState} user={user} />
       </View>
     </ScrollView>
   )
