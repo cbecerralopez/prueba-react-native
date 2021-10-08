@@ -2,7 +2,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 import React, { useContext, useState } from 'react'
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { UserContext } from '../context/UsersContext';
+import { UserContext, UserState } from '../context/UsersContext';
 import { PopUpInfoUserScreen } from '../components/PopUpInfoUser';
 
 
@@ -10,29 +10,32 @@ interface Props extends DrawerScreenProps<any, any> { }
 export const ListarUsuariosScreen = ({ navigation }: Props) => {
 
   const { usersState } = useContext(UserContext)
-const [state, setstate] = useState(false)
-
+  const [state, setState] = useState(false)
+  const [user, setUser] = useState({})
   if (usersState === undefined) {
     return <Text>No hay usuarios registrados</Text>
   }
-  return (<ScrollView style={styles.container}>
-    {
-      usersState.map((item) => {
-        return (
-          <View style={styles.item} key={item.id}>
-            {/* <TouchableOpacity onPress={() => { navigation.navigate('InfoUser', item) }}> */}
-            <TouchableOpacity onPress={() => { setstate(true)}}>
-              <Text style={styles.title}>Nombre: {item.nombre} {item.apellido}</Text>
-              <Text style={styles.title}>Usuario: {item.userName} </Text>
-            </TouchableOpacity>
-            <PopUpInfoUserScreen show={state} changeState={setstate}/>
-          </View>
-        )
-      }
-      )
-    }
-  </ScrollView>)
+  return (
 
+    <ScrollView style={styles.container}>
+      {
+        usersState.map((item) => {
+          return (
+            <View style={styles.item} key={item.id}>
+              {/* <TouchableOpacity onPress={() => { navigation.navigate('InfoUser', item) }}> */}
+              <TouchableOpacity onPress={() => { setUser(item), setState(true) }}>
+                <Text style={styles.title}>Nombre: {item.nombre} {item.apellido}</Text>
+                <Text style={styles.title}>Usuario: {item.userName} </Text>
+              </TouchableOpacity>
+            </View>
+          )
+        })
+        }
+      <View>
+        <PopUpInfoUserScreen show={state} changeState={setState} user={user} />
+      </View>
+    </ScrollView>
+  )
 }
 const styles = StyleSheet.create({
   container: {
