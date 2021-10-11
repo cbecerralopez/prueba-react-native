@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'#808080',
+    backgroundColor:'#EEEDED',
   },
   logo: {
     width: 260,

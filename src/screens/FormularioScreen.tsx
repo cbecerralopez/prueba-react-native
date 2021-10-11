@@ -40,12 +40,12 @@ export const FormularioScreen = ({ navigation }: Props) => {
       <FormularioTextInput placeholder="usuario" keyboard="default" value={usuario} onChange={onChange} />
       <FormularioTextInput placeholder="email" keyboard='email-address' value={email} onChange={onChange} />
       <FormularioTextInput placeholder="password" keyboard="visible-password" value={password} onChange={onChange} />
-
-      <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => { navigation.navigate('ListarUsuarios'), add(user), cleanForm("apellido") }}>
-        <View style={styles.btn}>
-          <Text style={styles.Text}>Guardar</Text>
-        </View>
-      </TouchableOpacity>
+      
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <TouchableOpacity  style={styles.btn} onPress={() => { navigation.navigate('ListarUsuarios'), add(user), cleanForm("apellido") }}>
+            <Text style={styles.Text}>Guardar</Text>
+          </TouchableOpacity>
+      </View>
 
     </View>
   );
