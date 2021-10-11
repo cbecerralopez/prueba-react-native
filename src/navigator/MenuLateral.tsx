@@ -1,12 +1,11 @@
+import 'react-native-gesture-handler'
 import React from 'react';
 import { createDrawerNavigator, DrawerScreenProps } from '@react-navigation/drawer';
 import {FormularioScreen} from '../screens/FormularioScreen';
 import { ListarUsuariosScreen } from '../screens/ListarUsuariosScreen';
 import { Home } from '../screens/Home';
-import { Usuario } from '../models/usuario';
 import { useWindowDimensions } from 'react-native';
-import { UserProvider, UserState } from '../context/UsersContext';
-import { InfoUser } from '../components/InfoUser';
+import { UserProvider } from '../context/UsersContext';
 
 export type RootStackParams = {
   Inicio: undefined

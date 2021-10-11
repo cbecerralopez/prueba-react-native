@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from '../screens/Home';
-import FormularioScreen from '../screens/FormularioScreen';
+import {FormularioScreen} from '../screens/FormularioScreen';
 import { ListarUsuariosScreen } from '../screens/ListarUsuariosScreen';
 
 const Stack = createStackNavigator();

@@ -1,10 +1,14 @@
+import { DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
 import React, { useRef, useState } from "react";
 import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
 
 export const FilterDrawerLayout = () => {
-  console.log("soy drawer")
   return(
-    <>{console.log("soy drawer")}</>
+    <DrawerContentScrollView>
+      <DrawerItem label={"hola"} onPress={()=>{console.log("")}}/>
+
+    
+    </DrawerContentScrollView>
   )
 };
 
