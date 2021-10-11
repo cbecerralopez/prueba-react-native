@@ -13,13 +13,14 @@ export const FormularioScreen = ({ navigation }: Props) => {
   const { add } = useContext(UserContext)
   const { authState: { userName } } = useContext(AuthContext)
 
-  const { nombre, email, usuario, apellido, password, onChange, cleanForm } = useForm({
+  const { nombre, email, usuario, apellido, password, onChange, cleanForm ,validateInfo} = useForm({
     nombre: '',
     apellido: '',
     password: '',
     email: '',
     usuario: '',
   });
+
 
   const user: UserState = {
     id: undefined,
@@ -42,7 +43,7 @@ export const FormularioScreen = ({ navigation }: Props) => {
       <FormularioTextInput placeholder="password" keyboard="visible-password" value={password} onChange={onChange} />
       
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <TouchableOpacity  style={styles.btn} onPress={() => { navigation.navigate('ListarUsuarios'), add(user), cleanForm("apellido") }}>
+          <TouchableOpacity  style={styles.btn} onPress={() => { validateInfo(user)&&(navigation.navigate('ListarUsuarios'), add(user), cleanForm("apellido"))}}>
             <Text style={styles.Text}>Guardar</Text>
           </TouchableOpacity>
       </View>
