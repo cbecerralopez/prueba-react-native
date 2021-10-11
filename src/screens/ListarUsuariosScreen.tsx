@@ -31,7 +31,7 @@ export const ListarUsuariosScreen = ({ navigation }: Props) => {
           style={{ borderColor: 'black', borderWidth: 1, width: '80%', marginHorizontal: 10 }}
           value={filter}
           onChangeText={e => { setFilter(e) }}
-          placeholder={"Search Filter"} />
+          placeholder={"Buscar por nombre"} />
 
         <TouchableOpacity onPress={() => { setFilterParams(true) }}>
           <Image source={require('../assets/icons/filtro.png')} style={{ width: 30, height: 30 }} />
@@ -62,14 +62,15 @@ export const ListarUsuariosScreen = ({ navigation }: Props) => {
         </View>
 
       </ScrollView>
+
       <PopUpFilter show={filterParams} changeStatePopUpFilter={setFilterParams} setParams={setParams} />
+
     </View>
 
   )
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   containerInfo: {

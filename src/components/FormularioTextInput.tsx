@@ -39,7 +39,8 @@ const FormularioTextInput = ({
         onChange(value, placeholder)
       }
       }
-      maxLength={placeholder!= "password"?15:5}
+      maxLength={placeholder != "password" ? 15 : 5}
+      secureTextEntry={placeholder != "password" ? false : true }
     />
   );
 };

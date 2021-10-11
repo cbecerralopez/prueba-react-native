@@ -40,7 +40,7 @@ export const FormularioScreen = ({ navigation }: Props) => {
       <FormularioTextInput placeholder="apellido" keyboard="default" value={apellido} onChange={onChange} />
       <FormularioTextInput placeholder="usuario" keyboard="default" value={usuario} onChange={onChange} />
       <FormularioTextInput placeholder="email" keyboard='email-address' value={email} onChange={onChange} />
-      <FormularioTextInput placeholder="password" keyboard="visible-password" value={password} onChange={onChange} />
+      <FormularioTextInput placeholder="password" keyboard="default" value={password} onChange={onChange} />
       
       <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <TouchableOpacity  style={styles.btn} onPress={() => { validateInfo(user)&&(navigation.navigate('ListarUsuarios'), add(user), cleanForm("apellido"))}}>

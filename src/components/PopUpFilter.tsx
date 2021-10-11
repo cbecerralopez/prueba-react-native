@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, Modal, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Image, Modal, Text, TouchableOpacity, View, StyleSheet, Alert } from 'react-native';
 
 interface Props {
     show: boolean
@@ -7,35 +7,43 @@ interface Props {
     setParams: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-export const PopUpFilter = ({ show, changeStatePopUpFilter,setParams }: Props) => {
+export const PopUpFilter = ({ show, changeStatePopUpFilter, setParams }: Props) => {
 
     return (
         <View style={styles.container}>
+
             <Modal
                 animationType='none'
                 transparent
                 visible={show}
             >
-                <View
-                    style={styles.container}>
-                    <View style={styles.popUp}>
-                        <View style={styles.image}>
-                            <Text style={{ marginHorizontal: 30, fontSize: 24, color: 'black' }}>Filtros</Text>
-                            <TouchableOpacity onPress={() => { changeStatePopUpFilter(false) }}>
-                                <Image source={require('../assets/icons/close.png')} style={styles.imageDesing} />
-                            </TouchableOpacity>
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{ width: '50%' }}>
+                        <TouchableOpacity onPress={() => { changeStatePopUpFilter(false) }} style={{ height: '100%' }}>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+
+                        <View style={styles.popUp}>
+                            <View style={styles.image}>
+                                <Text style={{ marginHorizontal: 30, fontSize: 24, color: 'black' }}>Filtros</Text>
+                                <TouchableOpacity onPress={() => { changeStatePopUpFilter(false) }}>
+                                    <Image source={require('../assets/icons/close.png')} style={styles.imageDesing} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ alignItems: 'flex-start', marginHorizontal: 20 }}>
+                                <TouchableOpacity style={styles.btn} onPress={() => { setParams(["activo"]) }}>
+                                    <Text style={styles.title}>Activado</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.btn} onPress={() => { setParams(["desactivado"]) }}>
+                                    <Text style={styles.title}>Desactivado</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                        <View style={{ alignItems: 'flex-start' }}>
-                            <TouchableOpacity style={{ borderColor: 'black', borderWidth: 1 }} onPress={()=>{setParams(["activo"])}}>
-                                <Text>Activado</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ borderColor: 'black', borderWidth: 1 }} onPress={()=>{setParams(["desactivado"])}}>
-                                <Text>desactivado</Text>
-                            </TouchableOpacity>
-                        </View>
+
                     </View>
                 </View>
-
             </Modal>
         </View>
     )
@@ -43,8 +51,7 @@ export const PopUpFilter = ({ show, changeStatePopUpFilter,setParams }: Props) =
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'flex-end'
+        flex: 1
     },
     imageDesing: {
         width: 15,
@@ -53,12 +60,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 15
     },
     popUp: {
-        position: 'relative',
         height: '100%',
-        width: '60%',
         backgroundColor: 'white',
-        //  left:150
-
+        alignItems: 'flex-start'
     },
     image: {
         height: 40,
@@ -66,6 +70,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
+    },
+    title: {
+        fontSize: 25,
+    },
+    btn: {
+        borderColor: 'black',
+        borderWidth: 1,
+        marginTop: 20
     }
 
 })
