@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import FormularioTextInput from '../components/FormularioTextInput';
 import useForm from '../hooks/useForm';

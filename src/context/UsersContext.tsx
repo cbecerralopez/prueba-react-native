@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from "react"
 import { UserReducer } from "./UserReducer"
 import { Usuario } from '../models/usuario';
+import { data } from '../assets/data/data';
 // como luce el context
 export interface UserState {
     id?: number
@@ -13,27 +14,7 @@ export interface UserState {
     createBy?: string
 }
 // estado inicial
-export const UserInitialState: UserState[] = [{
-    id: 1,
-    nombre: "claudio",
-    apellido: "becerra",
-    userName: "cbecerra",
-    email: "cbecerra@kvalue.cl",
-    password: "1234",
-    estado: true,
-    createBy: "cbecerra"
-},
-{
-    id: 2,
-    nombre: "michael",
-    apellido: "fuentes",
-    userName: "mfuentes",
-    email: "mfuentes@kvalue.cl",
-    password: "12345",
-    estado: true,
-    createBy: "mfuentes"
-}
-]
+export const UserInitialState: UserState[] = data
 // propiedades y funciones a  exportar
 export interface UserStateProps {
     usersState: UserState[]

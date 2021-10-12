@@ -6,11 +6,14 @@ import { ListarUsuariosScreen } from '../screens/ListarUsuariosScreen';
 import { Home } from '../screens/Home';
 import { useWindowDimensions } from 'react-native';
 import { UserProvider } from '../context/UsersContext';
+import { LoginScreen } from '../screens/LoginScreen';
+import { StackNavigator } from './StackNavigator';
 
 export type RootStackParams = {
   Inicio: undefined
   Formulario: undefined
   ListarUsuarios: undefined
+  Login:undefined
 }
 const Drawer = createDrawerNavigator<RootStackParams>();
 

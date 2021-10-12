@@ -1,14 +1,15 @@
 import { AuthState } from "./AuthContext"
 
 
-type AuthAction = { type: 'singIn' }
+type AuthAction = { type: 'singIn',payload:{userName:string,password:string} }
 
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
     switch (action.type) {
         case 'singIn':
             return {
-                ...state,
-                isLogin: true
+                isLogin: true,
+                userName:action.payload.userName,
+                password:action.payload.password,
             }
         default:
             return state

@@ -40,7 +40,8 @@ const FormularioTextInput = ({
       }
       }
       maxLength={placeholder != "password" ? 15 : 5}
-      secureTextEntry={placeholder != "password" ? false : true }
+      secureTextEntry={placeholder != "password" ? false : true}
+    // placeholderTextColor={"red"}
     />
   );
 };
