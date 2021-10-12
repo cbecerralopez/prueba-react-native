@@ -12,6 +12,7 @@ export interface UserState {
     password?: string
     estado?: boolean
     createBy?: string
+    dateCreate?: string
 }
 // estado inicial
 export const UserInitialState: UserState[] = data

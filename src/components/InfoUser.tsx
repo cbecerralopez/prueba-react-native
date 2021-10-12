@@ -23,6 +23,8 @@ export const InfoUser = ({ user,changeStatePopUp }: Props) => {
         <Text style={styles.title}>Email: {user.email}</Text>
         <Text style={styles.title}>Creado por: {user.createBy}</Text>
         <Text style={styles.title}>Estado: {user.estado ? "activado" : "desactivado"}</Text>
+        <Text style={styles.title}>Creador el : {user.dateCreate}</Text>
+        {console.log(user.dateCreate)}
       </View>
 
       <View style={styles.fila}>

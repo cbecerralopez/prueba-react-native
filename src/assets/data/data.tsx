@@ -8,7 +8,9 @@ export const data: UserState[] = [{
     email: "cbecerra@kvalue.cl",
     password: "1234",
     estado: true,
-    createBy: "master"
+    createBy: "master",
+    dateCreate: "25/07/2021"
+
 },
 {
     id: 2,
@@ -18,7 +20,9 @@ export const data: UserState[] = [{
     email: "mfuentes@kvalue.cl",
     password: "12345",
     estado: true,
-    createBy: "cbecerra"
+    createBy: "cbecerra",
+    dateCreate: "05/09/2021"
+
 },
 {
     id: 3,
@@ -28,7 +32,8 @@ export const data: UserState[] = [{
     email: "shuaiquil@kvalue.cl",
     password: "1234",
     estado: true,
-    createBy: "mfuentes"
+    createBy: "mfuentes",
+    dateCreate: "02/08/2021"
 },
 {
     id: 4,
@@ -38,6 +43,7 @@ export const data: UserState[] = [{
     email: "jperez@kvalue.cl",
     password: "3212",
     estado: true,
-    createBy: "mfuentes"
+    createBy: "mfuentes",
+    dateCreate: "03/05/2021"
 }
 ]

@@ -13,6 +13,10 @@ export const FormularioScreen = ({ navigation }: Props) => {
   const { add } = useContext(UserContext)
   const { authState: { userName } } = useContext(AuthContext)
 
+  const date = new Date()
+  const formatDate = date.getDate()+'/'+date.getMonth()+'/'+date.getFullYear()
+  console.log(formatDate)
+
   const { nombre, email, usuario, apellido, password, onChange, cleanForm ,validateInfo} = useForm({
     nombre: '',
     apellido: '',
@@ -30,7 +34,8 @@ export const FormularioScreen = ({ navigation }: Props) => {
     userName: usuario,
     password: password,
     estado: true,
-    createBy: userName
+    createBy: userName,
+    dateCreate : formatDate
   }
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Image, Modal, Text, TouchableOpacity, View, StyleSheet, Alert } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
 
 interface Props {
     show: boolean
@@ -9,6 +10,7 @@ interface Props {
 
 export const PopUpFilter = ({ show, changeStatePopUpFilter, setParams }: Props) => {
 
+    const [state, setstate] = useState("")
     return (
         <View style={styles.container}>
 
@@ -33,12 +35,16 @@ export const PopUpFilter = ({ show, changeStatePopUpFilter, setParams }: Props) 
                                 </TouchableOpacity>
                             </View>
                             <View style={{ alignItems: 'flex-start', marginHorizontal: 20 }}>
-                                <TouchableOpacity style={styles.btn} onPress={() => { setParams(["activo"]) }}>
-                                    <Text style={styles.title}>Activado</Text>
+                                <TouchableOpacity style={styles.btn} onPress={() => { setParams(["all"]) }}>
+                                    <Text style={styles.title}>Todos</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.btn} onPress={() => { setParams(["activado"]) }}>
+                                    <Text style={styles.title}>Activados</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.btn} onPress={() => { setParams(["desactivado"]) }}>
-                                    <Text style={styles.title}>Desactivado</Text>
+                                    <Text style={styles.title}>Desactivados</Text>
                                 </TouchableOpacity>
+
                             </View>
                         </View>
 
