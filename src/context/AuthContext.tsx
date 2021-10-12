@@ -16,12 +16,14 @@ export const authInicialState: AuthState = {
 export interface AuthStateProps {
     authState: AuthState
     signIn: (userName: string, password: string) => boolean
+    logout: () => void
 }
 export const AuthContext = createContext({} as AuthStateProps);
 
 export const AuthProvider = ({ children }: any) => {
 
     const [authState, dispatch] = useReducer(authReducer, authInicialState,)
+
     const signIn = (userName: string, password: string): boolean => {
 
         let result = data.filter((data) => data.userName?.includes(userName))
@@ -33,11 +35,17 @@ export const AuthProvider = ({ children }: any) => {
         }
         return false
     }
+    const logout = () => {
+
+        dispatch({type:'logout'})
+    }
+
 
     return (
         <AuthContext.Provider value={{
             authState,
-            signIn
+            signIn,
+            logout
         }
         }>{children}</AuthContext.Provider>
     )

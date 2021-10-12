@@ -19,7 +19,7 @@ export const InfoUser = ({ user,changeStatePopUp }: Props) => {
         <Text style={styles.title}>ID: {user.id}</Text>
         <Text style={styles.title}>Nombre: {user.nombre}</Text>
         <Text style={styles.title}>Apellido: {user.apellido}</Text>
-        <Text style={styles.title}>User Name: {user.userName}</Text>
+        <Text style={styles.title}>Usuario: {user.userName}</Text>
         <Text style={styles.title}>Email: {user.email}</Text>
         <Text style={styles.title}>Creado por: {user.createBy}</Text>
         <Text style={styles.title}>Estado: {user.estado ? "activado" : "desactivado"}</Text>

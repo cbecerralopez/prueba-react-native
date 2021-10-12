@@ -13,7 +13,7 @@ export const useSearchFilter = (filter: string, params: string[], user: UserStat
             return result.filter(result => result.estado === false)
         }
         if (params.includes("all")) {
-            return user
+            return result
         }
 
         return result

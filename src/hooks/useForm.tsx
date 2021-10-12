@@ -22,42 +22,42 @@ const useForm = <T extends Object>(formulario: T) => {
     });
   }
   const validateInfo = (user: UserState): boolean => {
-    if (user.nombre === "" || user.nombre?.length! <= 3) {
+    if (user.nombre === "" || user.nombre?.length! <= 1) {
       if (user.nombre === "") {
         Alert.alert("debes ingresar tu nombre")
         return false
       }
-      if (user.nombre?.length! <= 3) {
+      if (user.nombre?.length! <= 1) {
         Alert.alert("el nombre es demasiado corto")
         return false
       }
     }
-    if (user.apellido === "" || user.apellido?.length! <= 3) {
+    if (user.apellido === "" || user.apellido?.length! <= 1) {
       if (user.apellido === "") {
         Alert.alert("debes ingresar tu apellido")
         return false
       }
-      if (user.apellido?.length! <= 3) {
+      if (user.apellido?.length! <= 1) {
         Alert.alert("el apellido es demasiado corto")
         return false
       }
     }
-    if (user.userName === "" || user.userName?.length! <= 3) {
+    if (user.userName === "" || user.userName?.length! <= 1) {
       if (user.userName === "") {
         Alert.alert("debes ingresar tu nombre de usuario")
         return false
       }
-      if (user.userName?.length! <= 3) {
+      if (user.userName?.length! <= 1) {
         Alert.alert("el nombre de usuario es demasiado corto")
         return false
       }
     }
-    if (user.email === "" || user.email?.length! <= 3) {
+    if (user.email === "" || user.email?.length! <= 1) {
       if (user.email === "") {
         Alert.alert("debes ingresar tu email")
         return false
       }
-      if (user.email?.length! <= 3) {
+      if (user.email?.length! <= 1) {
         Alert.alert("el email es demasiado corto")
         return false
       }

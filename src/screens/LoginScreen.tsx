@@ -21,7 +21,7 @@ export const LoginScreen = ({ navigation }: Props) => {
 
       <Text style={styles.title}>Login</Text>
 
-      <Text style={styles.label}>Email:</Text>
+      <Text style={styles.label}>Usuario:</Text>
       <TextInput
         style={styles.inputField}
         placeholder="Ingrese su Nombre de usuario:"
@@ -55,7 +55,7 @@ export const LoginScreen = ({ navigation }: Props) => {
         <TouchableOpacity
           activeOpacity={0.8}
           style={styles.button}
-          onPress={() => {signIn(login.userName,login.password)?navigation.navigate('Menulateral'):Alert.alert("Usuario o contraseña invalidos")}}
+          onPress={() => {signIn(login.userName,login.password)?navigation.replace('Menulateral'):Alert.alert("Usuario o contraseña invalidos")}}
         >
           <Text style={styles.buttonText} >Login</Text>
         </TouchableOpacity>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 600,
     marginBottom: 50,
-    backgroundColor: 'blue'
+    backgroundColor: '#AB9EDC'
   },
   button: {
     borderWidth: 2,

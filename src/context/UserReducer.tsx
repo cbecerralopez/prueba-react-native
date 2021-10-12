@@ -4,6 +4,7 @@ type UserAction =
     | { type: 'add', payload: UserState }
     | { type: 'changeStateUser', payload: UserState }
     | { type: 'delete', payload: UserState }
+    | { type: 'update', payload: UserState }
 
 
 export const UserReducer = (state: UserState[], action: UserAction): UserState[] => {
@@ -15,7 +16,7 @@ export const UserReducer = (state: UserState[], action: UserAction): UserState[]
             for (let i = 0; i <= state.length - 1; i++) {
                 const user = state[i];
                 if (user.id === action.payload.id) {
-                    state.splice(i, 1,action.payload)
+                    state.splice(i, 1, action.payload)
                 }
             }
             return [...state]
@@ -24,7 +25,16 @@ export const UserReducer = (state: UserState[], action: UserAction): UserState[]
             for (let i = 0; i <= state.length - 1; i++) {
                 const user = state[i];
                 if (user.id === action.payload.id) {
-                    state.splice(i,1)
+                    state.splice(i, 1)
+                }
+            }
+            return [...state]
+        }
+        case 'update': {
+            for (let i = 0; i <= state.length - 1; i++) {
+                const user = state[i];
+                if (user.id === action.payload.id) {
+                    state.splice(i, 1, action.payload)
                 }
             }
             return [...state]
